@@ -30,6 +30,10 @@ pipeline {
             }
             steps {
                 input message: 'Deliver to production? (Click "Proceed" to continue)'
+                withAWS(region:'us-east-1', credentials:'AKIAZTBO5UPQ4I5J3SFD') {
+                    s3Delete(bucket: 'jenkins-testasdjfn', path:'**/*')
+                    s3Upload(bucket: 'jenkins-testasdjfn', workingDir:'build', includePathPattern:'**/*');
+                }
             }
         }
     }
