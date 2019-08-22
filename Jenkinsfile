@@ -29,7 +29,7 @@ pipeline {
                 branch 'master'
             }
             steps {
-                input message: 'Deliver to develop? (Click "Proceed" to continue)'
+                input message: 'Deliver to production? (Click "Proceed" to continue)'
             }
         }
     }
